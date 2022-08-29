@@ -1,18 +1,20 @@
 import data from './data/harrypotter/data.js';//data de Harry Potter
- const root = document.getElementById('root')
- root.classList = 'harry-style'
+import { filterPatronus } from './data.js';
+const root = document.getElementById('root')
 
-let personajes = data.characters
+//user story one
+function createCards (characters){
+    const createCard = document.createElement('div');
+    createCard.classList = 'cards'
+    let text = document.createElement('h4')
+    text.textContent=characters.name 
+    createCard.append(text)
+    return createCard
+ }
+ data.characters.forEach(oneCharacters=>root.appendChild(createCards(oneCharacters)))
 
-const generadorHTML = (characters)=>{
-    const div = document.createElement('div')
-    div.classList= 'divStyle'
-
-    let titleName = document.createElement('h4') 
-    titleName.textContent=characters.name
-
-   div.append(titleName)
-   return div 
-   
-    }
-personajes.forEach(oneCharacters=>root.appendChild(generadorHTML(oneCharacters)))
+ 
+const patronus = document.getElementById("patronus")
+patronus.addEventListener("click",()=>{
+    console.log(filterPatronus(data.characters))
+})

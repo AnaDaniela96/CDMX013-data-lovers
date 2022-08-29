@@ -1,44 +1,37 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  width: 100%;
-  height: 100%;
-  background-image:url(./imagenes/castle.jpg);
+  background-color:#FCBF49;
   background-repeat:round;
   background-size:contain;
 }
-
-header {
-  background-image: url(./imagenes/COLORES.png);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
-  height: 100px;
+header{
+  justify-content:space-around;
+}
+.contenedor {
+  width:100%;
+}
+/*.header{   
+  position: absolute;
+  width: 98.7%;
+  height: 96px;
+  background: #FAA275;
 }
 
-.logo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: goldenrod;
-  font-weight: 600;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.logo img {
-  display: flex;
+.buttonNav{
+  box-sizing: border-box;
   justify-content: center;
-  align-items: center;
-  max-width: 140px;
-  max-height: 140px;
+  width: 148px;
+  height: 34px;
+  left: 26px;
+  bottom: 968px;
+  background: #FAA275;
 }
-
+.buttonNav:hover{
+    border: 1.5px solid #010001
+}*/
+.pictureBottom{
+  width: 100%;
+  height:100%;
+}
 h1,h4 {
   color: goldenrod;
   font-family: sans-serif;
@@ -46,52 +39,37 @@ h1,h4 {
 
 }
 
-nav{ /*etiqueta para delimitar el menu*/
-  background-color:#B20003;
-  padding: 10px;
-  position:relative;
-  top: 5px;
-  width:50mm;
-  height: 100mm;
-  float:left;
-  border-radius: 15px;
-  right: -5px;
+nav ul{ /*etiqueta para delimitar el menu*/
+  list-style:none;
+  background: #D787B5;
+  text-align: center;
+}
+nav ul li{
+  display: inline-block;
+  padding: 20px;
+  transition:all ease-in-out 250ms;
+}
+ul li a{
+  color: #5C374C;
+  text-decoration:none;
+}
+nav ul li:hover{
+  background:#FFDAC6
+}
+.hide{
+  font-size: 22px;
+  padding:16px;
+  background-color:#D787B5; 
+  color:#5C374C;
+  cursor: pointer;
+  display: none;
 }
 
-.buttonmenu {
-    background-color:#B20003;
-    color:#DAA520;
-    padding:30px;
-    margin-top:25px;
-    margin-left: 20px;
-    border-color:#DAA520;
-    width:30mm;
-    height: 20mm;
-    border-radius: 1em 10%;
-    font-family:Arial;
-    font-size: 15px;
-
-}
-.buttonmenu:hover {
-    background-color:#7F0909;
-    }
-
-.footer {
-  width: 100%;
-  height: 20px;
-  background-color: #0B2B44;
-  float:inline-end
-}
-
-.harry-style{ /*etiqueta con la que damos estilo a las cajas de root*/
+.cards{
   display:flex;
   flex-wrap:wrap;
 }
-
-.divStyle{
-  
-    /*display: grid;
-    grid-template-columns: repeat(7, 1fr);*/
+.cards{
     background-color: #000000;
     height: 150px;
     width: 100px;
