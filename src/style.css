@@ -2,7 +2,9 @@ body {
   background-color:#FCBF49;
   background-repeat:round;
   background-size:contain;
+  font-family:'Roboto';
 }
+
 header{
   justify-content:space-around;
 }
@@ -39,33 +41,30 @@ h1,h4 {
 
 }
 
-nav ul{ /*etiqueta para delimitar el menu*/
+nav ul, .select, #organ{ /*etiqueta para delimitar el menu*/
   list-style:none;
   background: #D787B5;
   text-align: center;
+  font-family:'Roboto';
 }
-nav ul li{
+nav ul li, .menu, #organ{
   display: inline-block;
   padding: 20px;
   transition:all ease-in-out 250ms;
 }
-ul li a{
+ul li a, .menu, #organ{
   color: #5C374C;
   text-decoration:none;
+}
+#organ:hover,.select:hover{
+  background:#FFDAC6
 }
 nav ul li:hover{
   background:#FFDAC6
 }
-.hide{
-  font-size: 22px;
-  padding:16px;
-  background-color:#D787B5; 
-  color:#5C374C;
-  cursor: pointer;
-  display: none;
-}
 
-.cards{
+
+.card{
   display:flex;
   flex-wrap:wrap;
 }

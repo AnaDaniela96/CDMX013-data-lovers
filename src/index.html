@@ -26,20 +26,30 @@
   <nav class="menu">
    <ul>
     <li id="patronus">Patronus</li>
-    <li><a href="#">Organizaciones</a></li>
+    <select id ="organ">
+      <option id = "organ" value="1">Organizaciones</option>
+      <option id = "organ" value="2">Orden del Fénix</option>
+      <option id = "organ" value="3">Hogwarts Colegio de Magía y Hechiceria</option>
+      <option id = "organ" value="4">Ministerio de Magía</option>
+      <option id = "organ" value="5">Ejercito de Dumbledore</option>
+      <option id = "organ"value="6">Mortifagos</option>
+    </select>
+
     <li><a href="#" class="specie">Especies</a></li>
     <li><a href="#">Casas</a></li>
     <li><a href="#">Personajes</a></li>
-   </ul>
-   <div class="hide">
-    <i class="fa fa-bars" aria-hidden="true">Menú</i>
-   </div>
-
+  </ul>
   </nav>
 
-  <main id="principal">
-    <div id="root"></div>
-  </main>  
+
+<main>
+  <p id= "main"></p>
+  <div id="cards"></div>
+  <p id="texto"></p>
+  <div id="root"></div>
+</main>
+  
+  
 
   <script src="main.js" type="module"></script>
 </div>
