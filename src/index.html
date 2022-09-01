@@ -12,45 +12,34 @@
   <div class="contenedor">
 
   <header>
-    <!--<section class="header">
-      <button class= "buttonNav">Home</button>
-      <button class= "buttonNav">Personajes</button>
-      <button class= "buttonNav">Hechizos</button>
-      <button class= "buttonNav">Pociones</button>
-      <input type="search" id="box">
-      <button class= "buttonNav">Buscar</button>
-    </section> -->
     <img class="pictureBottom"  src="./assets/bottonandtitle.png">
   </header>
 
   <nav class="menu">
-   <ul>
-    <li id="patronus">Patronus</li>
-    <select id ="organ">
+    <button class="menu" id="patronus">Patronus</button>
+    <select class="menu" id ="slctMenu">
       <option id = "organ" value="1">Organizaciones</option>
       <option id = "organ" value="2">Orden del Fénix</option>
       <option id = "organ" value="3">Hogwarts Colegio de Magía y Hechiceria</option>
       <option id = "organ" value="4">Ministerio de Magía</option>
       <option id = "organ" value="5">Ejercito de Dumbledore</option>
-      <option id = "organ"value="6">Mortifagos</option>
+      <option id = "organ"value="6">Mortifagos</option></select>
+   <!-- <button class="menu" id="especies">Especies</button>  -->
+    <select class="menu" id="slectHouse"> <!--Casas-->
+      <option  value="1">Grif</option>
+      <option  value="2">Huff</option>
+      <option  value="3">Slithe</option>
+      <option  value="4">Ravencl</option>
     </select>
-
-    <li><a href="#" class="specie">Especies</a></li>
-    <li><a href="#">Casas</a></li>
-    <li><a href="#">Personajes</a></li>
-  </ul>
+    <button class="menu" id="btnCharacters">Personajes</button>
   </nav>
-
-
 <main>
   <p id= "main"></p>
   <div id="cards"></div>
-  <p id="texto"></p>
+  <p id="corporeal"></p>
+  
   <div id="root"></div>
 </main>
-  
-  
-
   <script src="main.js" type="module"></script>
 </div>
 </body>
