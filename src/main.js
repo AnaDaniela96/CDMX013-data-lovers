@@ -1,6 +1,8 @@
 import data from './data/harrypotter/data.js';//data de Harry Potter
-import { filterPatronus, filterGroups } from './data.js';
-
+import { filterPatronus, filterGroups, filterHouses, sortAZ, sortZA} from './data.js';
+const root = document.getElementById('root')
+    root.classList = 'card'
+const characters = data.characters
 //function story one: "show cards whit characters"
 function showCharacters(characters) {
     const createCard = document.createElement('div');
@@ -16,10 +18,11 @@ function patronus(filteredPat) {
     cardsPat.classList = 'cardsPat'
     let text = document.createElement('p')
     text.textContent = filteredPat
+    text.textContent.classList
     cardsPat.append(text)
     return cardsPat
 }
-//function three: take the value of "slctMenu" and have a new array whith name and college.
+//function three: Show cards groups
 function organization(filterGroups){
     const createCard = document.createElement('div');
     createCard.classList = 'cards'
@@ -28,32 +31,22 @@ function organization(filterGroups){
     createCard.append(text)
     return createCard
 }
-
-    //create a variable whit the function "filterPatronus"
-const arrayFilPatronus = filterPatronus(data.characters)
-     //for filter groups
-
-
-
-const filterHouse = document.getElementById("slectHouse")
-filterHouse.addEventListener("change",function(){
-    const house = filterHouse.value 
-    console.log(house);
-})
-
-
-
 //Event for load a page
 window.addEventListener('load', () => {
-    const root = document.getElementById('root')
-    root.classList = 'card'
-
     data.characters.forEach(oneCharacters => root.appendChild(showCharacters(oneCharacters)))//Show characters. Use function "showCharacters"
-    //Buttons of menu
+})
+    //Button of Patronus
     const btnPatronus = document.getElementById("patronus")
     btnPatronus.addEventListener('click', ()=>{
+        const arrayFilPatronus = filterPatronus(data.characters)
         root.innerHTML = '';
         arrayFilPatronus.forEach(p => root.appendChild(patronus(p)))//Show patronus whit characters. Use function "patrnous"
+    })
+    //Button Select Organizations
+    document.getElementById("btnCharacters").addEventListener("click",() => {
+        console.log(characters);
+        root.innerHTML = '';
+        characters.forEach(oneCharacters => root.appendChild(showCharacters(oneCharacters)))
     })
 
     const btnSelect = document.getElementById("slctMenu") //take element "slectMnu" and its value. document.getElementById('slctMenu').value
@@ -83,18 +76,36 @@ window.addEventListener('load', () => {
             members = data.characters.forEach(oneCharacters => root.appendChild(showCharacters(oneCharacters)))
         }
     })
-})
+    //Button select Houses
+    const btnSelHouse = document.getElementById("slectHouse")
+    btnSelHouse.addEventListener("change",() => {
+        if (btnSelHouse.value == "1"){
+            let houses = filterHouses(data.characters).map(x => x.name + x.species + x.house)
+                root.innerHTML = '';
+                houses.forEach(p => root.appendChild(patronus(p)))
+            }else if (btnSelHouse.value == "2"){
+        let houses = filterHouses(data.characters,"Gryffindor").map(x => x.name + x.species + x.house)
+            root.innerHTML = '';
+            console.log(houses);
+            houses.forEach(p => root.appendChild(patronus(p)))
+        } else if (btnSelHouse.value == "3"){
+        let houses =filterHouses(data.characters).map(x => x.name + x.species)
+            root.innerHTML = '';
+            houses.forEach(p => root.appendChild(patronus(p)))
+        }
 
-/*
-    else if(selectValue == "3"){
-        return character.associated_groups.find(e => e == "Hogwarts School of Witchcraft and Wizardry")
-    } else if(selectValue == "4"){
-        return character.associated_groups.find(e => e == "British Ministry of Magic")
-    } else if(selectValue == "5"){
-        return character.associated_groups.find(e => e == "Dumbledore's Army")
-    } else if(selectValue == "6"){
-        return character.associated_groups.find(e => e == "Death Eaters")
-    } else {
-        return character
-    }
-*/
+})
+   //Storie three: Sort A-Z 
+document.getElementById("btnSortAZ").addEventListener("click", () => {
+        root.innerHTML = '';
+        let ordenado =  sortAZ(characters).map(x => x.name)
+        ordenado.forEach(p => root.appendChild(patronus(p)))
+        
+    })
+    //Sort Z-A
+document.getElementById("btnSortZA").addEventListener("click", () => {
+        root.innerHTML = '';
+        let ordenado =  sortZA(characters).map(x => x.name)
+        ordenado.forEach(p => root.appendChild(patronus(p)))
+        
+    })

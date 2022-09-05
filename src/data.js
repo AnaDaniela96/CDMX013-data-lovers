@@ -20,3 +20,31 @@ export const filterGroups = (arrData,group) =>{
   return arrData.filter(character => { return character.associated_groups.find(e => e == group) })
 }
 
+//filter houses
+export const filterHouses = (arrData, house='all') =>{
+    if(house=='all'){
+      return arrData.filter(character => {return character.house !== null && character.house !=="None"})
+    }else{
+      return arrData.filter(character => {return character.house==house})
+    }
+
+}
+
+//sort by A-Z
+export const sortAZ= (arrData)=> arrData.sort((a, b) => {
+  if(a.name< b.name){ 
+  return -1
+  } if (a.name> b.name){
+  return 1}
+  return 0
+  });
+
+  //sort by Z-A
+export const sortZA= (arrData)=> arrData.sort((a, b) => {
+  if(a.name< b.name){ 
+    return 1
+    } if (a.name> b.name){
+    return -1
+    } 
+    return 0
+});
