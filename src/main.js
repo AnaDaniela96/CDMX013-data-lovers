@@ -1,5 +1,5 @@
 import data from './data/harrypotter/data.js';//data de Harry Potter
-import { filterPatronus, filterGroups, filterHouses, sortAZ, sortZA} from './data.js';
+import { filterPatronus, filterGroups, filterHouses, sortAZ, sortZA,percentage} from './data.js';
 const root = document.getElementById('root')
     root.classList = 'card'
 const characters = data.characters
@@ -32,9 +32,9 @@ function organization(filterGroups){
     return createCard
 }
 //Event for load a page
-window.addEventListener('load', () => {
+//window.addEventListener('load', () => {
     data.characters.forEach(oneCharacters => root.appendChild(showCharacters(oneCharacters)))//Show characters. Use function "showCharacters"
-})
+//})
     //Button of Patronus
     const btnPatronus = document.getElementById("patronus")
     btnPatronus.addEventListener('click', ()=>{
@@ -43,12 +43,6 @@ window.addEventListener('load', () => {
         arrayFilPatronus.forEach(p => root.appendChild(patronus(p)))//Show patronus whit characters. Use function "patrnous"
     })
     //Button Select Organizations
-    document.getElementById("btnCharacters").addEventListener("click",() => {
-        console.log(characters);
-        root.innerHTML = '';
-        characters.forEach(oneCharacters => root.appendChild(showCharacters(oneCharacters)))
-    })
-
     const btnSelect = document.getElementById("slctMenu") //take element "slectMnu" and its value. document.getElementById('slctMenu').value
     btnSelect.addEventListener('change',()=>{
         let members = []
@@ -79,33 +73,77 @@ window.addEventListener('load', () => {
     //Button select Houses
     const btnSelHouse = document.getElementById("slectHouse")
     btnSelHouse.addEventListener("change",() => {
+        let percentageTotal = filterHouses(data.characters).length
         if (btnSelHouse.value == "1"){
             let houses = filterHouses(data.characters).map(x => x.name + x.species + x.house)
-                root.innerHTML = '';
+            root.innerHTML = '';
                 houses.forEach(p => root.appendChild(patronus(p)))
             }else if (btnSelHouse.value == "2"){
-        let houses = filterHouses(data.characters,"Gryffindor").map(x => x.name + x.species + x.house)
-            root.innerHTML = '';
-            console.log(houses);
-            houses.forEach(p => root.appendChild(patronus(p)))
+            let houses = filterHouses(data.characters,"Gryffindor").map(x => x.name + x.species + x.house)
+            let per = percentage(percentageTotal,houses.length) 
+            let parrafo = document.createElement('p');
+            let textParrafo = document.createTextNode('El porcentaje de estudiantes de estudiantes que pertenecen a esta casa es  '+'%'+ per +'.')
+            let appenQuary = document.querySelector('.igual')
+                appenQuary.innerHTML='';
+                root.innerHTML = '';
+                appenQuary.appendChild(parrafo);
+                parrafo.appendChild(textParrafo);
+                houses.forEach(p => root.appendChild(patronus(p)))
         } else if (btnSelHouse.value == "3"){
-        let houses =filterHouses(data.characters).map(x => x.name + x.species)
-            root.innerHTML = '';
-            houses.forEach(p => root.appendChild(patronus(p)))
+            let houses =filterHouses(data.characters,"Hufflepuff").map(x => x.name + x.species+ x.house)
+            let per = percentage(percentageTotal,houses.length) 
+            let parrafo = document.createElement('p');
+            let textParrafo = document.createTextNode('!!!!!El porcentaje de estudiantes de estudiantes que pertenecen a esta casa es  '+'%'+ per +'.')
+            let appenQuary = document.querySelector('.igual')
+                appenQuary.innerHTML='';
+                root.innerHTML = '';
+                appenQuary.appendChild(parrafo);
+                parrafo.appendChild(textParrafo);
+                houses.forEach(p => root.appendChild(patronus(p)))
+        }else if (btnSelHouse.value == "4"){
+            let houses =filterHouses(data.characters,"Slytherin").map(x => x.name + x.species+ x.house)
+            let per = percentage(percentageTotal,houses.length) 
+            let parrafo = document.createElement('p');
+            let textParrafo = document.createTextNode('!!!!!El porcentaje de estudiantes de estudiantes que pertenecen a esta casa es  '+'%'+ per +'.')
+            let appenQuary = document.querySelector('.igual')
+                appenQuary.innerHTML='';
+                root.innerHTML = '';
+                appenQuary.appendChild(parrafo);
+                parrafo.appendChild(textParrafo);
+                houses.forEach(p => root.appendChild(patronus(p)))
+        }else if(btnSelHouse.value == "5"){
+            let houses =filterHouses(data.characters,"Ravenclaw").map(x => x.name + x.species+ x.house)
+            let per = percentage(percentageTotal,houses.length) 
+            let parrafo = document.createElement('p');
+            let textParrafo = document.createTextNode('!!!!!El porcentaje de estudiantes de estudiantes que pertenecen a esta casa es  '+'%'+ per +'.')
+            let appenQuary = document.querySelector('.igual')
+                appenQuary.innerHTML='';
+                root.innerHTML = '';
+                appenQuary.appendChild(parrafo);
+                parrafo.appendChild(textParrafo);
+                houses.forEach(p => root.appendChild(patronus(p)))
         }
-
 })
-   //Storie three: Sort A-Z 
-document.getElementById("btnSortAZ").addEventListener("click", () => {
-        root.innerHTML = '';
-        let ordenado =  sortAZ(characters).map(x => x.name)
-        ordenado.forEach(p => root.appendChild(patronus(p)))
-        
+
+
+
+   //Storie three: Sort A-Z Sort Z-A
+    const slectCharacters = document.getElementById("slectCharacters")
+    slectCharacters.addEventListener("change",() => {
+        if (slectCharacters.value == "2"){
+            root.innerHTML = '';
+            //aquí va poner los porcentajes
+            let orderedCards = sortAZ(characters).map(x => x.name)
+            orderedCards.forEach(p => root.appendChild(patronus(p)))
+        }else if(slectCharacters.value == "3"){
+            root.innerHTML = '';
+            let orderedCards = sortZA(characters).map(x => x.name)
+            orderedCards.forEach(p => root.appendChild(patronus(p)))
+        }else if(slectCharacters.value =="1"){
+            root.innerHTML = ''
+            let characters=data.characters.map(x=> x.name + x.birth)
+            characters.forEach(p => root.appendChild(patronus(p)))
+        }else(data.characters.forEach(oneCharacters => root.appendChild(showCharacters(oneCharacters))))
     })
-    //Sort Z-A
-document.getElementById("btnSortZA").addEventListener("click", () => {
-        root.innerHTML = '';
-        let ordenado =  sortZA(characters).map(x => x.name)
-        ordenado.forEach(p => root.appendChild(patronus(p)))
-        
-    })
+
+   

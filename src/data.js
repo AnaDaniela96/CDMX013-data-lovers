@@ -29,6 +29,10 @@ export const filterHouses = (arrData, house='all') =>{
     }
 
 }
+//calculate
+export const percentage = (total, piece) =>{ // Recieve two numbers
+  return (piece/total)*100
+};
 
 //sort by A-Z
 export const sortAZ= (arrData)=> arrData.sort((a, b) => {

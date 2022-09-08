@@ -1,10 +1,7 @@
 body {
-  background-color:#FCBF49;
+  background-color:wheat;
   background-repeat:round;
   background-size:contain;
-}
-header, nav, main {
-  justify-content:center;
 }
 .contenedor {
   width:100%;
@@ -13,19 +10,31 @@ header, nav, main {
   width: 99%;
   height:100%;
 }
+
 nav{ /*etiqueta para delimitar el menu*/
-  background: #D787B5;
-  width: 99%
+  height: 20%;
+  width:99%;
+  
 }
 .menu{
-  display:inline-flex;
-  color: #5C374C;
-  text-decoration:none;
-  font-family:'Courier New', Courier, monospace
+  background-color: #2C567F;
+  color: #F0FE89;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 30px;
+}
+.percente{
+  background:#FFDAC6; 
+}
+main{
+  background-image:url(assets/castle.jpg)
 }
 button:hover, select:hover{
   background:#FFDAC6;
-  justify-content:space-between;
+  
 }
 .menu{
   padding: 10px;
@@ -39,14 +48,20 @@ button,select{
 .card{
   display:flex;
   flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
 }
 .cards{
-    background-color: #CE6A85;
-    height: 120px;
-    width: 230px;
+    height: 200px;
+    width: 400px;
     margin-left: 20px;
     margin-top:25px;
     border-radius: 15px;
+    border:color #360503;
+    border-width: 1.5px;
+    border-style: solid;
+    color:#360503;
+    background-color: #CCDB3D;
   }
   .cardsPat {
     width: 10cm;
@@ -57,14 +72,10 @@ button,select{
    
   }
   h4 {
-    font-family: 'Merriweather';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 41px;
-    display: flex;
-    align-items: center; 
-    color: #010001; 
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 35px;
+    line-height: 100px;
+    display:grid;
     justify-content: center; 
   }
  p{
