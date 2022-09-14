@@ -12,7 +12,7 @@ export const anotherExample = () => {
 export const filterPatronus = (arrData)=>{
   return arrData.filter(character=>{
     return character.patronus !== null && character.patronus !=="None";
-  }).map(x => x.patronus + x.name)
+  }).map(x => x.name)
 }
 
 //filter groups associated
