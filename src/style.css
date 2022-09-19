@@ -1,80 +1,86 @@
 body {
-  background-color:#FCBF49;
+  background-color:wheat;
   background-repeat:round;
   background-size:contain;
-  font-family:'Roboto';
-}
-
-header{
-  justify-content:space-around;
 }
 .contenedor {
   width:100%;
 }
-/*.header{   
-  position: absolute;
-  width: 98.7%;
-  height: 96px;
-  background: #FAA275;
+header{
+  background-image: url(./assets/castle.jpg);
 }
 
-.buttonNav{
-  box-sizing: border-box;
-  justify-content: center;
-  width: 148px;
-  height: 34px;
-  left: 26px;
-  bottom: 968px;
-  background: #FAA275;
+nav{ /*etiqueta para delimitar el menu*/
+  height: 20%;
+  width:99%; 
 }
-.buttonNav:hover{
-    border: 1.5px solid #010001
-}*/
-.pictureBottom{
-  width: 100%;
-  height:100%;
+.menu{
+  background-color: #2C567F;
+  color: #D1D1D1;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 30px;
 }
-h1,h4 {
-  color: goldenrod;
-  font-family: sans-serif;
-  text-align: center;
-
+.percente{
+  background:#FFDAC6; 
 }
-
-nav ul, .select, #organ{ /*etiqueta para delimitar el menu*/
-  list-style:none;
-  background: #D787B5;
-  text-align: center;
-  font-family:'Roboto';
+main{
+  background-image:url(assets/botton.png);
 }
-nav ul li, .menu, #organ{
-  display: inline-block;
-  padding: 20px;
-  transition:all ease-in-out 250ms;
+.menu{
+  padding: 10px;
+  transition:all ease-in-out 100ms;
 }
-ul li a, .menu, #organ{
-  color: #5C374C;
-  text-decoration:none;
+button,select{
+  justify-content:space-between;
+  align-items: center;
+  border:none;
 }
-#organ:hover,.select:hover{
-  background:#FFDAC6
-}
-nav ul li:hover{
-  background:#FFDAC6
-}
-
-
 .card{
   display:flex;
   flex-wrap:wrap;
 }
+
 .cards{
-    background-color: #000000;
     height: 150px;
-    width: 100px;
+    width:280px;
     margin-left: 20px;
     margin-top:25px;
-    border: 2px solid goldenrod;
-    border-radius: 15px;
+    background-color: #CCDB3D;
+    padding:2%;
+    justify-content: center;
+}
+
+  h4 {
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-size: 35px;
+    line-height: 100px;
+    display:grid;
+    justify-content: center; 
   }
-  
+h2{
+  color:#000000;
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 30px;
+  line-height: 100px;
+}
+ p{ /*texto que va dentro de las tarjetas*/
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 30px;
+  color:#2D2D2D;
+  justify-content: center; 
+}
+.mensajes{
+  background-color: #FCBF49;
+  padding: auto;
+}
+#foto{
+  width:40cm;
+  height:25cm;
+  justify-self: center;
+}
+
+

@@ -1,58 +1,48 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <title>Data Lovers/Harry Potter</title>
   <link rel="stylesheet" href="style.css" />
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale-1.0, minimum-scale-1.0"
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale-1.0, minimum-scale-1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet"> 
 </head>
-
 <body>
   <div class="contenedor">
-
   <header>
-    <!--<section class="header">
-      <button class= "buttonNav">Home</button>
-      <button class= "buttonNav">Personajes</button>
-      <button class= "buttonNav">Hechizos</button>
-      <button class= "buttonNav">Pociones</button>
-      <input type="search" id="box">
-      <button class= "buttonNav">Buscar</button>
-    </section> -->
-    <img class="pictureBottom"  src="./assets/bottonandtitle.png">
+    <img class="titleimg" src="./assets/titulosincontorno.png">
   </header>
 
   <nav class="menu">
-   <ul>
-    <li id="patronus">Patronus</li>
-    <select id ="organ">
-      <option id = "organ" value="1">Organizaciones</option>
-      <option id = "organ" value="2">Orden del Fénix</option>
-      <option id = "organ" value="3">Hogwarts Colegio de Magía y Hechiceria</option>
-      <option id = "organ" value="4">Ministerio de Magía</option>
-      <option id = "organ" value="5">Ejercito de Dumbledore</option>
-      <option id = "organ"value="6">Mortifagos</option>
+    <button class="menu" id="btnPrincipal">Principal</button>
+    <button class="menu" id="patronus">Patronus</button>
+    <select class="menu" id ="slctMenu">
+      <option value="1">Organizaciones</option>
+      <option value="2">Orden del Fénix</option>
+      <option value="3">Hogwarts Colegio de Magía y Hechiceria</option>
+      <option value="4">Ministerio de Magía</option>
+      <option value="5">Ejercito de Dumbledore</option>
+      <option value="6">Mortifagos</option></select>
+    <select class="menu" id="slectHouse"> 
+      <option value="1">Casas</option>
+      <option value="2">Gryffindor</option>
+      <option value="3">Hufflepuff</option>
+      <option value="4">Slytherin</option>
+      <option value="5">Ravenclaw</option>
     </select>
-
-    <li><a href="#" class="specie">Especies</a></li>
-    <li><a href="#">Casas</a></li>
-    <li><a href="#">Personajes</a></li>
-  </ul>
+    <button class="menu"id="sortAZ">A-Z</button>
+    <button class="menu"id="sortZA">Z-A</button>
   </nav>
-
-
+  <div class="mensajes">
+    <p>En esta página puedes encontrar tarjetas con los nombres de los personajes de Harry Potter</p>
+    <img id="foto" src="./assets/botton.png">
+  </div>
 <main>
-  <p id= "main"></p>
-  <div id="cards"></div>
-  <p id="texto"></p>
-  <div id="root"></div>
+<div id="root"></div>
 </main>
-  
-  
-
   <script src="main.js" type="module"></script>
 </div>
 </body>
-
 </html>
