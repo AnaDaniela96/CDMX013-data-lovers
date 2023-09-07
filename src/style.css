@@ -1,23 +1,24 @@
-body {
+ /* body {
   background-color:#FCBF49;
   background-repeat:round;
   background-size:contain;
   font-family:'Roboto';
+} */
+.pictureBottom{
+  width: 100%;
+  height:100%;
 }
 
+
+/*
 header{
   justify-content:space-around;
 }
 .contenedor {
   width:100%;
-}
-/*.header{   
-  position: absolute;
-  width: 98.7%;
-  height: 96px;
-  background: #FAA275;
-}
+} */
 
+/*
 .buttonNav{
   box-sizing: border-box;
   justify-content: center;
@@ -30,24 +31,21 @@ header{
 .buttonNav:hover{
     border: 1.5px solid #010001
 }*/
-.pictureBottom{
-  width: 100%;
-  height:100%;
-}
+/* 
 h1,h4 {
   color: goldenrod;
   font-family: sans-serif;
   text-align: center;
 
-}
+} */
 
-nav ul, .select, #organ{ /*etiqueta para delimitar el menu*/
+/* nav ul, .select, #organ{ /*etiqueta para delimitar el menu
   list-style:none;
   background: #D787B5;
   text-align: center;
   font-family:'Roboto';
-}
-nav ul li, .menu, #organ{
+} */
+/* nav ul li, .menu, #organ{
   display: inline-block;
   padding: 20px;
   transition:all ease-in-out 250ms;
@@ -55,19 +53,22 @@ nav ul li, .menu, #organ{
 ul li a, .menu, #organ{
   color: #5C374C;
   text-decoration:none;
-}
-#organ:hover,.select:hover{
+} */
+/* #organ:hover,.select:hover{
   background:#FFDAC6
 }
 nav ul li:hover{
   background:#FFDAC6
-}
+} */
 
 
 .card{
-  display:flex;
-  flex-wrap:wrap;
+ width: 250px;
+ height: 250px;
+ text-align: center;
+ background-color: #000000;
 }
+/* 
 .cards{
     background-color: #000000;
     height: 150px;
@@ -76,5 +77,5 @@ nav ul li:hover{
     margin-top:25px;
     border: 2px solid goldenrod;
     border-radius: 15px;
-  }
+  } */
   
