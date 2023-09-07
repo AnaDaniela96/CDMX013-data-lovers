@@ -2,77 +2,42 @@
 import data from './data/harrypotter/data.js';
 
 //Imports the data.js functions to perform the filters
-import { filterPatronus, filterGroups } from './data.js';
+import { createCards, filterForPatronus, filterGroups } from './data.js';
 
 //Global functions
 const root = document.getElementById('root');
+const characterButton = document.getElementById('filterForCharacters');
+const patronusButton = document.getElementById('filterForPatronus');
 
-//Functions
-function createCards(characters) {
-    const createCard = document.createElement('div');
-    const cardBody = document.createElement('div');
-    let characterName = document.createElement('h4');
-    let birthCharacters = document.createElement('p');
+//Function for button characters
+characterButton.addEventListener('click', () => {
+    root.innerHTML = ' ';
+    createCards(data.characters);
+    data.characters.forEach(oneCharacters => root.appendChild(createCards(oneCharacters)));
+})
 
-    characterName.textContent = characters.name;
-    birthCharacters.textContent = characters.birth;
+//Function for button patronus
+patronusButton.addEventListener('click', () => {
+    root.innerHTML = '';
 
-    createCard.classList = 'card';
-    characterName.classList = 'card-title text-black fw-700';
-    birthCharacters.classList = 'card-text text-black'; 
-    cardBody.classList = 'card-body';
+    // Dynamic paragraph
+    const paragraph = document.createElement('p');
+    paragraph.textContent = "El Patronus, en el mundo mágico de Harry Potter, es una manifestación de la magia más profunda y poderosa que reside en cada mago. Se trata de una encarnación de la fortaleza interior, un guardián de luz y esperanza que surge para enfrentar las fuerzas oscuras y el miedo. Las tarjetas que estás viendo son un reflejo de los magos y brujas más fuertes, aquellos que han descubierto y dominado su Patronus. Cada una de estas tarjetas muestra el nombre del Patronus de estos valientes hechiceros, un recordatorio de que la luz siempre prevalece sobre la oscuridad en el mundo mágico de Harry Potter.";
+    paragraph.style.textAlign = 'justify'; // Justificar el texto
 
-    // Agrega clases personalizadas para el borde redondeado, sombra y borde dorado
-    createCard.classList.add('rounded', 'shadow', 'my-3');
-    createCard.style.borderColor = '#431E15'; 
-    createCard.style.borderWidth = '6px';
-    createCard.style.backgroundColor = '#D9AC36';
-    
-    cardBody.append(characterName, birthCharacters);
-    createCard.append(cardBody);
-    return createCard
-}
-data.characters.forEach(oneCharacters => root.appendChild(createCards(oneCharacters)));
+    root.appendChild(paragraph);
 
+    const patronusGroups = filterForPatronus(data.characters);
+    const nonCorporealPatronus = patronusGroups['No Non-corporeal'];
 
+    if (nonCorporealPatronus) {
+        nonCorporealPatronus.forEach((character) => {
+            const card = createCards({ name: character.name, patronus: character.patronus });
+            root.appendChild(card);
+        });
+    }
+});
 
-
-
-
-
-
-
-//user story two
-
-
-// let filteredPat = filterPatronus(data.characters)
-
-// console.log(filteredPat)
-
-// // create new cards for patronus
-// //const createCardP = document.getElementById('patronus')
-// //createCardP.addEventListener('click',patronus)
-
-// function patronus(filteredPat) {
-//     const createCard = document.createElement('div');
-//     createCard.classList = 'cards';
-//     createCard.classList = 'styleCards';
-//     let text = document.createElement('h4')
-//     text.textContent = filteredPat
-//     createCard.append(text)
-//     return createCard
-// }
-// filteredPat.forEach(oneCharacters => root.appendChild(patronus(oneCharacters)))
-
-// // first: clean dom
-// const clean = document.querySelector("main")
-// const cleanN = document.getElementById('patronus')
-// cleanN.addEventListener('click', () => {
-//     clean.innerHTML = " ";
-// })
-
-
-// //filter by "patronus"
 
 
 // //para filter groups

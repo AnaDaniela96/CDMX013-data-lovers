@@ -4,13 +4,14 @@
 <head>
   <meta charset="utf-8">
   <title>Data Lovers/Harry Potter</title>
-  <link rel="stylesheet" href="style.css" />
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale-1.0, minimum-scale-1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="main.js" type="module"></script>
 </head>
 
 <body>
@@ -36,7 +37,7 @@
           </ul>
         </div>
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Escríbe algo y busca" aria-label="Search">
+          <input class="form-control me-2" type="search" placeholder="Escríbe algo..." aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Búscar</button>
         </form>
       </div>
@@ -44,32 +45,45 @@
     <img class="pictureBottom" src="./assets/bottonandtitle.png">
   </header>
 
-  <!-- <nav class="menu">
-   <ul>
-    <li id="patronus">Patronus</li>
-    <select id ="organ">
-      <option id = "organ" value="1">Organizaciones</option>
-      <option id = "organ" value="2">Orden del Fénix</option>
-      <option id = "organ" value="3">Hogwarts Colegio de Magía y Hechiceria</option>
-      <option id = "organ" value="4">Ministerio de Magía</option>
-      <option id = "organ" value="5">Ejercito de Dumbledore</option>
-      <option id = "organ"value="6">Mortifagos</option>
-    </select>
-
-    <li><a href="#" class="specie">Especies</a></li>
-    <li><a href="#">Casas</a></li>
-    <li><a href="#">Personajes</a></li>
-  </ul>
-  </nav>
-
-  <section class="header">
-    <button class= "buttonNav">Home</button>
-    <button class= "buttonNav">Personajes</button>
-    <button class= "buttonNav">Hechizos</button>
-    <button class= "buttonNav">Pociones</button>
-    <input type="search" id="box">
-    <button class= "buttonNav">Buscar</button>
-  </section> -->
+  <aside class="my-3 d-flex justify-content-center align-items-center">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid" >
+        <a class="navbar-brand" href="#" id="filterForCharacters">Personajes</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" id="filterForPatronus">Patronus</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Especies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Casas</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Organizaciones
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Orden del Fénix</a></li>
+                <li><a class="dropdown-item" href="#">Hogwarts Colegio de Magía y Hechiceria</a></li>
+                <li><a class="dropdown-item" href="#">Ministerio de Magía</a></li>
+                <li><a class="dropdown-item" href="#">Ejercito de Dumbledore</a></li>
+                <li><a class="dropdown-item" href="#">Mortifagos</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </aside>
+  
+  
+  <!-- <h1>Estos son todos los Personajes de la saga.</h1>
+    <p>Aquí puedes ver su fecha de nacimiento y nombre.</p> -->
   <main id="root" class="container my-4" style="display: flex; flex-wrap:wrap; justify-content: space-around;">
     <!-- <p id="main"></p>
     <div id="cards"></div>
@@ -77,9 +91,8 @@
     <div id="root"></div> -->
   </main>
 
+ 
 
-
-  <script src="main.js" type="module"></script>
 </body>
 
 </html>
