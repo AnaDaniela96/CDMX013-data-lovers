@@ -16,7 +16,7 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Amortentia</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -41,14 +41,14 @@
           <button class="btn btn-outline-success" type="submit">Búscar</button>
         </form>
       </div>
-    </nav>
+    </nav> -->
     <img class="pictureBottom" src="./assets/bottonandtitle.png">
   </header>
 
   <aside class="my-3 d-flex justify-content-center align-items-center">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid" >
-        <a class="navbar-brand" href="#" id="filterForCharacters">Personajes</a>
+        <a class="navbar-brand" id="filterForCharacters">Personajes</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -58,21 +58,21 @@
               <a class="nav-link active" aria-current="page" id="filterForPatronus">Patronus</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Especies</a>
+              <a class="nav-link" id="filterForSpecies" >Especies</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Casas</a>
+              <a class="nav-link" id="houses" >Casas</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Organizaciones
               </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Orden del Fénix</a></li>
-                <li><a class="dropdown-item" href="#">Hogwarts Colegio de Magía y Hechiceria</a></li>
-                <li><a class="dropdown-item" href="#">Ministerio de Magía</a></li>
-                <li><a class="dropdown-item" href="#">Ejercito de Dumbledore</a></li>
-                <li><a class="dropdown-item" href="#">Mortifagos</a></li>
+              <ul class="dropdown-menu" id="groupList">
+                <li data-value="2" ><a class="dropdown-item">Orden del Fénix</a></li>
+                <li data-value="3" ><a class="dropdown-item">Hogwarts Colegio de Magía y Hechiceria</a></li>
+                <li data-value="4" ><a class="dropdown-item">Ministerio de Magía</a></li>
+                <li data-value="5" ><a class="dropdown-item">Ejercito de Dumbledore</a></li>
+                <li data-value="6" ><a class="dropdown-item">Mortifagos</a></li>
               </ul>
             </li>
           </ul>
@@ -80,19 +80,12 @@
       </div>
     </nav>
   </aside>
-  
-  
-  <!-- <h1>Estos son todos los Personajes de la saga.</h1>
-    <p>Aquí puedes ver su fecha de nacimiento y nombre.</p> -->
+
   <main id="root" class="container my-4" style="display: flex; flex-wrap:wrap; justify-content: space-around;">
-    <!-- <p id="main"></p>
-    <div id="cards"></div>
-    <p id="texto"></p>
-    <div id="root"></div> -->
+    <h1>Explora el Mundo de Harry Potter</h1>
+    <p>Bienvenido al mundo mágico de Harry Potter, donde encontrarás información sobre los personajes que habitan en este fascinante universo.</p>
   </main>
-
- 
-
+  
 </body>
 
 </html>

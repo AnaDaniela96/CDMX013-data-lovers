@@ -1,72 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200&display=swap');
 
-body{
+body {
   font-family: 'DM Sans', sans-serif;
   background-color: #80B0A4;
 }
 
-.pictureBottom{
+.pictureBottom {
   width: 100%;
-  height:100%;
+  height: 100%;
 }
-/*
-.buttonNav{
-  box-sizing: border-box;
-  justify-content: center;
-  width: 148px;
-  height: 34px;
-  left: 26px;
-  bottom: 968px;
-  background: #FAA275;
-}
-.buttonNav:hover{
-    border: 1.5px solid #010001
-}*/
-/* 
-h1,h4 {
-  color: goldenrod;
-  font-family: sans-serif;
+
+.card {
+  width: 250px;
+  height: 250px;
   text-align: center;
-
-} */
-
-/* nav ul, .select, #organ{ /*etiqueta para delimitar el menu
-  list-style:none;
-  background: #D787B5;
-  text-align: center;
-  font-family:'Roboto';
-} */
-/* nav ul li, .menu, #organ{
-  display: inline-block;
-  padding: 20px;
-  transition:all ease-in-out 250ms;
-}
-ul li a, .menu, #organ{
-  color: #5C374C;
-  text-decoration:none;
-} */
-/* #organ:hover,.select:hover{
-  background:#FFDAC6
-}
-nav ul li:hover{
-  background:#FFDAC6
-} */
-
-
-.card{
- width: 250px;
- height: 250px;
- text-align: center;
 }
 
-/* 
-.cards{
-    background-color: #000000;
-    height: 150px;
-    width: 100px;
-    margin-left: 20px;
-    margin-top:25px;
-    border: 2px solid goldenrod;
-    border-radius: 15px;
-  } */
-  
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #80B0A4;
+}
+
+.pictureBottom {
+  width: 100%;
+  height: 100%;
+}
+
+.house-buttons{
+  display: flex;
+  flex-direction: wrap;
+  width: 100%;
+  justify-content: space-around;
+}
+/* Styles for Gryffindor */
+.house-button.gryffindor {
+  width: 200px;
+  height: 250px;
+  background-image: url(./assets/Gryffindor-flag.jpg);
+  background-size: 100% 100%;
+}
+
+/* Styles for Slytherin */
+.house-button.slytherin {
+  width: 200px;
+  height: 250px;
+  background-image: url(./assets/slitherin-flag.jpg);
+  background-size: 100% 100%;
+}
+
+/* Styles for Hufflepuff */
+.house-button.hufflepuff {
+  width: 200px;
+  height: 250px;
+  background-image: url(./assets/flag-hufflepuff.jpg);
+  background-size: 100% 100%;
+}
+
+/* Styles for Ravenclaw */
+.house-button.ravenclaw {
+  width: 200px;
+  height: 250px;
+  background-image: url(./assets/ravenclaw-flag.jpg);
+  background-size: 100% 100%;
+}
+
+/* Estilo para el contenedor de la lista de especies */
+#species-list-container {
+  flex: 1; /* El contenedor de la lista toma el 50% del espacio disponible */
+  padding: 10px; /* Espacio interior */
+  background-color: #f0f0f0; /* Color de fondo opcional */
+}
+
+/* Estilo para el contenedor de los "cards" */
+#cards-container {
+ 
+  display: flex;
+  flex-direction: wrap;
+  padding: 10px; /* Espacio interior */
+  background-color: #ffffff; /* Color de fondo opcional */
+}
