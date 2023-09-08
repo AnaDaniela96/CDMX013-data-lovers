@@ -16,7 +16,7 @@
 
 <body>
   <header>
-    <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Amortentia</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -26,26 +26,22 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Personajes</a>
+              <a class="nav-link active" aria-current="page"id="showCharacters">Personajes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Hechizos</a>
+              <a class="nav-link" id="showSpells">Hechizos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pociones</a>
+              <a class="nav-link" id="showPotions">Pociones</a>
             </li>
           </ul>
         </div>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Escríbe algo..." aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Búscar</button>
-        </form>
       </div>
-    </nav> -->
+    </nav>
     <img class="pictureBottom" src="./assets/bottonandtitle.png">
   </header>
 
-  <aside class="my-3 d-flex justify-content-center align-items-center">
+  <aside class="my-3 d-flex justify-content-center align-items-center" id="menu-charcters">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid" >
         <a class="navbar-brand" id="filterForCharacters">Personajes</a>
@@ -81,10 +77,18 @@
     </nav>
   </aside>
 
-  <main id="root" class="container my-4" style="display: flex; flex-wrap:wrap; justify-content: space-around;">
-    <h1>Explora el Mundo de Harry Potter</h1>
-    <p>Bienvenido al mundo mágico de Harry Potter, donde encontrarás información sobre los personajes que habitan en este fascinante universo.</p>
-  </main>
+  <div class="d-none d-flex flex-column m-4" id="container-buttons">
+    <button type="button" class="btn btn-light" id="buttonAZ">Ordena los hechizos de la A-Z</button>
+    <button type="button" class="btn btn-dark" id="buttonZA">Ordena los hechizos de la Z-A</button>
+  </div>
+
+  <div style="display: flex; flex-direction: row;">
+    <main id="root" class="container my-4" style="display: flex; flex-wrap:wrap; justify-content: space-around; align-items: flex-start;">
+      <h1 style="font-weight: 900; font-size: 70px; text-align: center;">Explora el Mundo de Harry Potter</h1>
+      <p style="font-size: 35px; text-align: center;">Bienvenido al mundo mágico de Harry Potter, donde encontrarás información sobre los personajes que habitan en este fascinante universo.</p>
+    </main>
+    <aside id="lateral-menu"></aside>
+  </div>
   
 </body>
 

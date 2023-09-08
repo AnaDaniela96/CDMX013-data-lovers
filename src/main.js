@@ -2,26 +2,51 @@
 import data from './data/harrypotter/data.js';
 
 //Imports the data.js functions to perform the filters
-import { createCards, filterForPatronus, filterGroups, filterByHouse, getUniqueSpecies, filterBySpecies } from './data.js';
+import { createCards, filterForPatronus, filterGroups, filterByHouse, getUniqueSpecies, filterBySpecies } from './dataCharacters.js';
+import { filterAndCreateSpellCards, sortAB, sortBA  } from './dataSpells.js';
+import { createTableForPotions } from './dataPotions.js';
 
 //Global functions
 const root = document.getElementById('root');
+const lateralMenu = document.getElementById('lateral-menu');
 const characterButton = document.getElementById('filterForCharacters');
 const patronusButton = document.getElementById('filterForPatronus');
 const groupList = document.getElementById('groupList');
 const housesButton = document.getElementById('houses');
 const buttonSpecies = document.getElementById('filterForSpecies');
+const buttonBySpells = document.getElementById('showSpells');
+const characterButtonMenu = document.getElementById('showCharacters');
+const submenuCharacters = document.getElementById('menu-charcters');
+const sortAZ = document.getElementById('buttonAZ'); 
+const sortZA = document.getElementById('buttonZA'); 
+const buttonsSort = document.getElementById('container-buttons');
+const buttonPotions = document.getElementById('showPotions');
 
-//Function for button characters
+//Function for button characters and button characters for menu.
+characterButtonMenu.addEventListener('click', () => {
+    submenuCharacters.classList.remove('d-none');
+    buttonsSort.classList.add('d-none');
+    root.innerHTML = ' ';
+    lateralMenu.innerHTML = ' ';
+    createCards(data.characters);
+    data.characters.forEach(oneCharacters => root.appendChild(createCards(oneCharacters)));
+})
+
 characterButton.addEventListener('click', () => {
     root.innerHTML = ' ';
+    buttonsSort.classList.add('d-none');
+    submenuCharacters.classList.remove('d-none');
+    lateralMenu.innerHTML = ' ';
     createCards(data.characters);
     data.characters.forEach(oneCharacters => root.appendChild(createCards(oneCharacters)));
 })
 
 //Function for button patronus
 patronusButton.addEventListener('click', () => {
+    submenuCharacters.classList.remove('d-none');
+    buttonsSort.classList.add('d-none');
     root.innerHTML = '';
+    lateralMenu.innerHTML = ' ';
 
     // Dynamic paragraph
     const paragraph = document.createElement('p');
@@ -43,12 +68,14 @@ patronusButton.addEventListener('click', () => {
 
 // Funcion for groups
 groupList.addEventListener('click', (event) => {
+    submenuCharacters.classList.remove('d-none');
     if (event.target.tagName === 'A') {
         const selectedValue = event.target.parentElement.getAttribute('data-value'); // Obtener el valor seleccionado del data-value del li
         const filteredCharacters = filterGroups(data.characters, selectedValue); // Filtrar los personajes
 
         // Limpia el contenido actual y muestra los personajes filtrados
         root.innerHTML = '';
+        lateralMenu.innerHTML = ' ';
         filteredCharacters.forEach((character) => {
             const card = createCards({ name: character.name });
             root.appendChild(card);
@@ -57,7 +84,10 @@ groupList.addEventListener('click', (event) => {
 });
 
 housesButton.addEventListener('click', () => {
+    submenuCharacters.classList.remove('d-none');
+    buttonsSort.classList.add('d-none');
     root.innerHTML = '';
+    lateralMenu.innerHTML = ' ';
 
     const charactersByHouse = filterByHouse(data.characters);
     const createHouseButtons = () => {
@@ -90,37 +120,40 @@ housesButton.addEventListener('click', () => {
 });
 
 
-// Function by species
-// Función para mostrar las especies en un contenedor específico y agregar eventos de clic
+//To display the species in a specific container and add click events.
 function displayUniqueSpecies() {
+    submenuCharacters.classList.remove('d-none');
+    buttonsSort.classList.add('d-none');
     root.innerHTML = '';
-    // Obtener una lista de especies únicas
+    lateralMenu.innerHTML = ' ';
+    // Obtain a list of unique species.
     const uniqueSpecies = getUniqueSpecies(data.characters);
   
-    // Crear un contenedor para la lista de especies
+    // Create a container for the species list.
     const speciesListContainer = document.createElement('div');
-    speciesListContainer.id = 'species-list-container'; // Asignar un ID al contenedor
-    root.appendChild(speciesListContainer);
+    speciesListContainer.id = 'species-list-container'; 
+    lateralMenu.appendChild(speciesListContainer);
   
-    // Crear un elemento de lista ul
+    // Create a list item ul.
     const speciesList = document.createElement('ul');
-    speciesList.classList.add('species-list'); // Agregar una clase CSS para personalizar la lista
+    speciesList.classList.add('species-list'); 
   
-    // Recorrer las especies únicas y agregarlas como elementos de lista li
+    // Scroll through the unique species and add them as list items li 
     uniqueSpecies.forEach((species) => {
       const listItem = document.createElement('li');
       listItem.textContent = species;
-      listItem.classList.add('species-item'); // Agregar una clase CSS para personalizar los elementos de la lista
+      listItem.classList.add('species-item'); 
       listItem.addEventListener('click', () => {
-        // Filtrar personajes por la especie seleccionada
+        // Filter characters by the selected species
         const filteredCharacters = filterBySpecies(data.characters, species);
   
-        // Crear un contenedor para los "cards"
+        // Create a container for the cards
         const cardsContainer = document.createElement('div');
-        cardsContainer.id = 'cards-container'; // Asignar un ID al contenedor
+        cardsContainer.id = 'cards-container'; 
+        root.innerHTML = '';
         root.appendChild(cardsContainer);
   
-        // Mostrar los personajes filtrados en los "cards"
+       // Show the filtered characters in the "cards".
         filteredCharacters.forEach((character) => {
             cardsContainer.innerHTML = '';
           const card = createCards(character);
@@ -130,13 +163,34 @@ function displayUniqueSpecies() {
       speciesList.appendChild(listItem);
     });
   
-    // Agregar la lista de especies al contenedor de la lista de especies
+   // Add species list to species list container
     speciesListContainer.appendChild(speciesList);
   }
   
-  // Agregar un evento de clic al botón "buttonSpecies" para mostrar las especies
+// Add a click event to the "buttonSpecies" button to display species
   buttonSpecies.addEventListener('click', displayUniqueSpecies);
   
+// Function for spells
+  buttonBySpells.addEventListener('click', () => {
+    submenuCharacters.classList.add('d-none');
+    buttonsSort.classList.remove('d-none');
+    
+    filterAndCreateSpellCards(data.spells);
+  })
 
+  sortAZ.addEventListener('click', sortAB );
 
+  sortZA.addEventListener('click', sortBA );
 
+//Function for potions
+buttonPotions.addEventListener('click', () => {
+    submenuCharacters.classList.add('d-none');
+    buttonsSort.classList.add('d-none');
+    root.innerHTML = ' ';
+    lateralMenu.innerHTML = ' ';
+    console.log('li');
+    data.potions.forEach(onePotion => {
+        const table = createTableForPotions(onePotion);
+        root.appendChild(table);
+    });
+});
